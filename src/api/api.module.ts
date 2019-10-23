@@ -3,6 +3,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationInterface } from './api-configuration';
 
+import { GroupsService } from './services/groups.service';
 import { OrdersService } from './services/orders.service';
 
 /**
@@ -18,6 +19,7 @@ import { OrdersService } from './services/orders.service';
   declarations: [],
   providers: [
     ApiConfiguration,
+    GroupsService,
     OrdersService
   ],
 })

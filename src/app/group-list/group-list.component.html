@@ -1,0 +1,11 @@
+<table align="center">
+    <thead>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let group of groups | async">
+            <td (click)="openOrders(group.id);">{{group.description}}</td>
+        </tr>
+    </tbody>
+</table>
