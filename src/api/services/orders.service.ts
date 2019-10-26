@@ -14,6 +14,7 @@ import { Order } from '../models/order';
 class OrdersService extends __BaseService {
   static readonly OrdersGetOrdersPath = '/api/Orders';
   static readonly OrdersPostOrderPath = '/api/Orders';
+  static readonly OrdersGetOrdersByGroupIdPath = '/api/Orders/ByGroup/{groupId}';
   static readonly OrdersGetOrderPath = '/api/Orders/{id}';
   static readonly OrdersPutOrderPath = '/api/Orders/{id}';
   static readonly OrdersDeleteOrderPath = '/api/Orders/{id}';
@@ -81,6 +82,40 @@ class OrdersService extends __BaseService {
   OrdersPostOrder(order: Order): __Observable<Order> {
     return this.OrdersPostOrderResponse(order).pipe(
       __map(_r => _r.body as Order)
+    );
+  }
+
+  /**
+   * @param groupId undefined
+   */
+  OrdersGetOrdersByGroupIdResponse(groupId: number): __Observable<__StrictHttpResponse<Array<Order>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/api/Orders/ByGroup/${groupId}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<Order>>;
+      })
+    );
+  }
+  /**
+   * @param groupId undefined
+   */
+  OrdersGetOrdersByGroupId(groupId: number): __Observable<Array<Order>> {
+    return this.OrdersGetOrdersByGroupIdResponse(groupId).pipe(
+      __map(_r => _r.body as Array<Order>)
     );
   }
 

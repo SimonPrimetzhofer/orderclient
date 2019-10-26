@@ -1,1 +1,20 @@
 <p>{{ groupId | async }}</p>
+<div *ngIf="groupId">
+
+    <table>
+        <thead>
+            <th>Kunde</th>
+            <th>Fertig bis</th>
+            <th>Erledigt</th>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let order of orders | async">
+                <td>{{order.customer.rank}} {{order.customer.name}}</td>
+                <td>{{order.dateTo | date: 'medium'}}</td>
+                <td><button (click)="SetOrderDone(order);">Erledigt</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
