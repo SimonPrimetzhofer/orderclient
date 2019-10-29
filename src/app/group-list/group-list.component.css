@@ -1,0 +1,8 @@
+mat-grid-tile {
+    background: lightgrey;
+    cursor: pointer;
+}
+
+mat-grid-tile:hover {
+    background: darkgrey;
+}
