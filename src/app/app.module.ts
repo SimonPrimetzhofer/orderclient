@@ -11,12 +11,17 @@ import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
+import { NavigationComponent } from './navigation/navigation.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { AddOrderComponent } from './add-order/add-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OrderComponent,
-    GroupListComponent
+    GroupListComponent,
+    NavigationComponent,
+    AddOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,8 @@ import { MatListModule } from '@angular/material/list';
     FormsModule,
     MatTableModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

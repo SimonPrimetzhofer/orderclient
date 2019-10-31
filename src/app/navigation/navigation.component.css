@@ -1,0 +1,23 @@
+.navcontainer {
+    background-color: lightgrey;
+    height: 100%;
+    cursor: pointer!important;
+}
+
+.navcontainer:hover {
+    background-color:darkgrey;
+}
+
+.navsurrounding {
+    height: 100%;   
+}
+
+i {
+    padding-left: 50%;
+    padding-top: 40%;
+    font-size: 800%;
+}
+
+p {
+    padding-left: 49%;
+}

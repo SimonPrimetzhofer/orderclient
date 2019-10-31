@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { OrderComponent } from './order/order.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { AddOrderComponent } from './add-order/add-order.component';
 
 
 const routes: Routes = [
   { path: 'orders/:id', component: OrderComponent },
-  { path: '', redirectTo: 'orders', pathMatch: 'full' }
+  { path: 'navigation', component: NavigationComponent },
+  { path: 'orders/add', component: AddOrderComponent }
+  { path: '', redirectTo: 'navigation', pathMatch: 'full' }
 ];
 
 @NgModule({
