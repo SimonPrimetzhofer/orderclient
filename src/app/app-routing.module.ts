@@ -8,7 +8,7 @@ import { AddOrderComponent } from './add-order/add-order.component';
 const routes: Routes = [
   { path: 'orders/:id', component: OrderComponent },
   { path: 'navigation', component: NavigationComponent },
-  { path: 'orders/add', component: AddOrderComponent }
+  { path: 'add', component: AddOrderComponent },
   { path: '', redirectTo: 'navigation', pathMatch: 'full' }
 ];
 

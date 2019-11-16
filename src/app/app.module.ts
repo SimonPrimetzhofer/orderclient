@@ -14,6 +14,11 @@ import { MatListModule } from '@angular/material/list';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { AddOrderComponent } from './add-order/add-order.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { AddOrderComponent } from './add-order/add-order.component';
     MatTableModule,
     MatGridListModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
