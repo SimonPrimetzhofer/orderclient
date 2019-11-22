@@ -1,18 +1,55 @@
 <button routerLink="/navigation" class="w3-button">Zurück zur Startseite</button>
-<div>
-    <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+<div align="center">
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Fertig bis: " [(ngModel)]="newDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 
-      <!-- <mat-form-field>
-        <mat-label>Favorite food</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{food.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field> -->
+  <br />
+
+  <mat-form-field>
+    <mat-label>Benutzer</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let customer of customers | async" [value]="customer.id"
+        (onSelectionChange)="newOrder.customerId = customer.id">
+        {{customer.rank}} {{customer.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div id="formDiv">
+    <!-- input section -->
+    <mat-form-field>
+      <input matInput placeholder="Menge" type="number" [(ngModel)]="amount" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Beschreibung" type="text" [(ngModel)]="description" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput class="inputBtn" value="Hinzufügen" (click)="addOrderline();" />
+    </mat-form-field>
+
+    <br/>
+    <button (click)="addOrder();" class="w3-button">Bestellung absenden</button>
+
+    <!-- table section -->
+    <table class="w3-table-all w3-margin">
+      <thead class="w3-border-bottom">
+        <th>Menge</th>
+        <th>Beschreibung</th>
+        <th>&nbsp;</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderline of newOrder.orderLines; let index">
+          <td>{{orderline.amount}}</td>
+          <td>{{orderline.description}}</td>
+          <td class="deleteBtn" (click)="removeOrderline(index);"><i class="material-icons">
+              delete
+            </i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>

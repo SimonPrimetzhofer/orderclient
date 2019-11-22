@@ -4,5 +4,6 @@ export interface Customer {
   id: number;
   name: string;
   rank: string;
+  groupId: number;
   group: Group;
 }
