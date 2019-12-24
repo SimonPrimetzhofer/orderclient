@@ -20,7 +20,7 @@
                     <span *ngFor="let orderline of order.orderLines">{{orderline.amount}} {{orderline.description}}
                         <br /></span>
                 </td>
-                <td><button (click)="SetOrderDone(order);">Erledigt</button></td>
+                <td><button class="w3-button" (click)="SetOrderDone(order);">Erledigt</button></td>
             </tr>
         </tbody>
     </table>

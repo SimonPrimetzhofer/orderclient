@@ -47,12 +47,15 @@ export class AddOrderComponent implements OnInit {
 
   public addOrder() {
     this.newOrder.done = false;
-    this.newOrder.dateTo = this.newDate.getDate() + "." + (this.newDate.getMonth() + 1) + "." + this.newDate.getFullYear()
-      + " " + this.newDate.getHours() + ":" + this.newDate.getMinutes();
+    //Valid DateTime template: 2019-12-24T00:00:00
+    this.newOrder.dateTo = this.newDate.getFullYear() + "-" + (this.newDate.getMonth() + 1) + "-" + this.newDate.getDate()
+      + "T" + (this.newDate.getHours() < 10 ? "0" + this.newDate.getHours() : this.newDate.getHours()) + ":" +
+      (this.newDate.getMinutes() < 10 ? "0" + this.newDate.getMinutes() : this.newDate.getMinutes()) + ":" +
+      (this.newDate.getSeconds() < 10 ? "0" + this.newDate.getSeconds() : this.newDate.getSeconds());
+ 
     this.orderService.OrdersPostOrder(this.newOrder).subscribe((response) => {
       console.log(response);
     });
-    console.log(this.newOrder);
   }
 
 }

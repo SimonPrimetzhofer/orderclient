@@ -12,7 +12,7 @@
     <mat-label>Benutzer</mat-label>
     <mat-select>
       <mat-option *ngFor="let customer of customers | async" [value]="customer.id"
-        (onSelectionChange)="newOrder.customerId = customer.id">
+        (onSelectionChange)="newOrder.customerId = customer.id; newOrder.customer = customer">
         {{customer.rank}} {{customer.name}}
       </mat-option>
     </mat-select>
